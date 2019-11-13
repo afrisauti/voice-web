@@ -46,27 +46,20 @@ const GetInvolved: React.ComponentType = () => {
           <h1 />
         </Localized>
 
-        <Localized
-          id="about-get-involved-text"
-          discourseLink={<DiscourseLink />}
-          githubLink={<GitHubLink />}
-          slackLink={<SlackLink />}>
+        <Localized id="about-get-involved-text">
           <p />
         </Localized>
 
         <div className="get-involved-icons">
-          {[
-            [DiscourseLink, DiscourseIconCode],
-            [GitHubLink, GithubIconCode],
-            [SlackLink, SlackIcon],
-            [ContactLink, ContactIconCode],
-          ].map(([LinkComponent, IconComponent]: [any, any], index: number) => (
-            <LinkComponent
-              key={`get-involved-icon-${index}`}
-              className="round-button">
-              <IconComponent />
-            </LinkComponent>
-          ))}
+          {[[ContactLink, ContactIconCode]].map(
+            ([LinkComponent, IconComponent]: [any, any], index: number) => (
+              <LinkComponent
+                key={`get-involved-icon-${index}`}
+                className="round-button">
+                <IconComponent />
+              </LinkComponent>
+            )
+          )}
         </div>
       </div>
     </>

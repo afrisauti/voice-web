@@ -84,7 +84,7 @@ export default function HomePage() {
           )
         }
       />
-
+      {/* 
       <div className="text">
         <div className="inner">
           <div className="title">
@@ -130,12 +130,12 @@ export default function HomePage() {
             </Localized>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="stats" ref={statsRef}>
+      {/* <div className="stats" ref={statsRef}>
         <ClipsStats.Root />
         <VoiceStats />
-      </div>
+      </div> */}
 
       {user.account ? (
         <section className="contribute-section">
@@ -155,47 +155,49 @@ export default function HomePage() {
                     </Localized>
                   </>
                 ) : (
-                  <>
-                    <Localized id="request-language-text">
-                      <h1 />
-                    </Localized>
-                    <div style={{ width: '100%' }} />
-                    <Localized id="request-language-button">
-                      <button
-                        type="button"
-                        className="request-language"
-                        onClick={() => setShowRequestLanguageModal(true)}
-                      />
-                    </Localized>
-                    {showRequestLanguageModal && (
-                      <RequestLanguageModal
-                        onRequestClose={() =>
-                          setShowRequestLanguageModal(false)
-                        }
-                      />
-                    )}
-                  </>
+                  // <>
+                  //   <Localized id="request-language-text">
+                  //     <h1 />
+                  //   </Localized>
+                  //   <div style={{ width: '100%' }} />
+                  //   <Localized id="request-language-button">
+                  //     <button
+                  //       type="button"
+                  //       className="request-language"
+                  //       onClick={() => setShowRequestLanguageModal(true)}
+                  //     />
+                  //   </Localized>
+                  //   {showRequestLanguageModal && (
+                  //     <RequestLanguageModal
+                  //       onRequestClose={() =>
+                  //         setShowRequestLanguageModal(false)
+                  //       }
+                  //     />
+                  //   )}
+                  // </>
+                  <></>
                 )
               }
             />
           </div>
         </section>
       ) : (
-        <RegisterSection marsSrc="/img/mars.svg">
-          <Localized id="help-make-dataset">
-            <h1 />
-          </Localized>
-          <Localized id="profile-not-required">
-            <h2 />
-          </Localized>
-          <Localized id="sign-up-account">
-            <LinkButton
-              rounded
-              href="/login"
-              onClick={() => trackHome('click-benefits-register', locale)}
-            />
-          </Localized>
-        </RegisterSection>
+        // <RegisterSection marsSrc="/img/mars.svg">
+        //   <Localized id="help-make-dataset">
+        //     <h1 />
+        //   </Localized>
+        //   <Localized id="profile-not-required">
+        //     <h2 />
+        //   </Localized>
+        //   <Localized id="sign-up-account">
+        //     <LinkButton
+        //       rounded
+        //       href="/login"
+        //       onClick={() => trackHome('click-benefits-register', locale)}
+        //     />
+        //   </Localized>
+        // </RegisterSection>
+        <div></div>
       )}
     </div>
   );

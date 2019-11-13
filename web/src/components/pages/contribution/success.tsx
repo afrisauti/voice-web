@@ -7,12 +7,14 @@ import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { DAILY_GOAL } from '../../../constants';
 import { useAccount, useAPI } from '../../../hooks/store-hooks';
+import { trackProfile } from '../../../services/tracker';
 import { useTypedSelector } from '../../../stores/tree';
 import URLS from '../../../urls';
 import { LocaleLink, useLocale } from '../../locale-helpers';
 import { CheckIcon, MicIcon, PlayOutlineIcon } from '../../ui/icons';
 import { Button, LinkButton, TextButton } from '../../ui/ui';
 import { SET_COUNT } from './contribution';
+import Modal, { ModalProps } from '../../modal/modal';
 
 import './success.css';
 
@@ -31,6 +33,39 @@ const GoalPercentage = ({
   </span>
 );
 
+const HAS_SEEN_ACCOUNT_MODAL_KEY = 'hasSeenAccountModal';
+
+const AccountModal = (props: ModalProps) => {
+  const [locale] = useLocale();
+  return (
+    <Modal {...props} innerClassName="account-modal">
+      <div className="images">
+        <img src={require('./waves.svg')} alt="Waves" className="bg" />
+        <img
+          src={require('./mars-blue.svg')}
+          alt="Mars Robot"
+          className="mars"
+        />
+      </div>
+      <Localized id="keep-track-profile">
+        <h1 />
+      </Localized>
+      <Localized id="login-to-get-started">
+        <h2 />
+      </Localized>
+      <Localized id="login-signup">
+        <LinkButton
+          rounded
+          href="/login"
+          onClick={() => {
+            trackProfile('contribution-conversion-modal', locale);
+          }}
+        />
+      </Localized>
+    </Modal>
+  );
+};
+
 function Success({
   getString,
   onReset,
@@ -43,6 +78,7 @@ function Success({
   const account = useAccount();
 
   const [locale] = useLocale();
+  const flags = useTypedSelector(({ flags }) => flags);
 
   const hasAccount = Boolean(account);
   const customGoal =
@@ -54,6 +90,17 @@ function Success({
 
   const [contributionCount, setContributionCount] = useState(null);
   const [currentCount, setCurrentCount] = useState(null);
+  const showAccountModalDefault =
+    flags.showAccountConversionModal &&
+    !hasAccount &&
+    !JSON.parse(localStorage.getItem(HAS_SEEN_ACCOUNT_MODAL_KEY));
+
+  const [showAccountModal, setShowAccountModal] = useState(
+    showAccountModalDefault
+  );
+  if (showAccountModalDefault) {
+    localStorage.setItem(HAS_SEEN_ACCOUNT_MODAL_KEY, JSON.stringify(true));
+  }
 
   function countUp(time: number) {
     if (killAnimation.current) return;
@@ -100,8 +147,9 @@ function Success({
         {...props}
       />
     ) : (
-      <TextButton
-        className="contribute-more-button secondary"
+      <Button
+        className="contribute-more-button"
+        rounded
         onClick={onReset}
         {...props}
       />
@@ -118,6 +166,10 @@ function Success({
 
   return (
     <div className="contribution-success">
+      {showAccountModal && (
+        <AccountModal onRequestClose={() => setShowAccountModal(false)} />
+      )}
+
       <div className="counter done">
         <CheckIcon />
         <Localized
@@ -144,6 +196,13 @@ function Success({
         />
       </div>
 
+      <ContributeMoreButton>
+        {type === 'speak' ? <MicIcon /> : <PlayOutlineIcon />}
+        <Localized id="contribute-more" $count={SET_COUNT}>
+          <span />
+        </Localized>
+      </ContributeMoreButton>
+
       {hasAccount ? (
         !customGoal && (
           <div className="info-card">
@@ -168,13 +227,6 @@ function Success({
           </Localized>
         </div>
       )}
-
-      <ContributeMoreButton>
-        {type === 'speak' ? <MicIcon /> : <PlayOutlineIcon />}
-        <Localized id="contribute-more" $count={SET_COUNT}>
-          <span />
-        </Localized>
-      </ContributeMoreButton>
 
       {hasAccount && (
         <Localized id="edit-profile">

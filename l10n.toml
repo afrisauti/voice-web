@@ -8,5 +8,5 @@ basepath = "."
     l = "{l10n_base}/web/locales/{locale}/"
 
 [[paths]]
-    reference = "web/locales/en/**"
+    reference = "web/locales/ha/**"
     l10n = "{l}**"

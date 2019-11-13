@@ -110,9 +110,9 @@ class Hero extends React.Component<
             <Localized id={type + '-paragraph'}>
               <p className="description" />
             </Localized>
-            <Localized id="read-terms-q">
+            {/* <Localized id="read-terms-q">
               <LocaleLink to={URLS.TERMS} className="terms" />
-            </Localized>
+            </Localized> */}
           </div>
         </div>
         <div className="column cta">

@@ -13,7 +13,7 @@ import { useLocale } from '../locale-helpers';
 import './share-buttons.css';
 import { useAction } from '../../hooks/store-hooks';
 
-const SHARE_URL = 'https://voice.mozilla.org/';
+const SHARE_URL = 'https://donate.afrisauti.org/';
 
 interface Props extends LocalizationProps {
   shareTextId?: string;

@@ -51,7 +51,7 @@ export default function Landing() {
         </Localized>
       </RegisterSection>
 
-      <section className="about-section">
+      {/* <section className="about-section">
         <div className="inner">
           <Localized id="home-title">
             <h1 />
@@ -70,7 +70,7 @@ export default function Landing() {
             <ArrowLeft />
           </LinkButton>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

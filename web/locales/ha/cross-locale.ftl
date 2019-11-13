@@ -1,16 +1,18 @@
 ## Languages
+contribute = Contribute
+get-involved-button = Get Involved
+get-involved-title = Contribute to { $lang }
+get-involved-text =
+  Thank you for your interest in contributing to { $lang }. We work hard to get every language ready for launch and keep
+  the teams updated via email. If you want to contribute, please provide your email below.
 
-contribute = Taimaka
-get-involved-button = Shiga a dama da kai
-get-involved-title = Taimaka wa { $lang }
-get-involved-text = Mun gode da nuna sha'awarka wajen taimaka wa yaren { $lang }. Muna aiki tukuru don samun kowane harshe a shirye tsaf kuma za mu ci gaba da tuntubar ma'abotanmu ta hanyar sakon yanar gizo. Idan kana son taimakawa, ka taimaka ka ba da adreshinka na yanar gizo a kasa.
-get-involved-form-title = Shigo don samun abubuwan da ke gudana a yaren { $lang }
+get-involved-form-title = Sign up for { $lang } updates:
 get-involved-email =
-    .label = Adreshin yanar gizo
-get-involved-opt-in = Na amince a aika min sakon yanar gizo. Ina son in samu bayanai akan cigaban da ake samu a kan wannan yaren ta kafar Common Voice.
-get-involved-submit = Tura
-get-involved-stayintouch = Mu a Mozilla muna gina al'umma da suke da fasahar murya. Muna so mu ci gaba da tuntuba tare da sabunta sababbin bayanai kuma mu ji daga gareku kan yadda kuke amfani da  wannan bayanan.
-get-involved-privacy-info = Mun yi alkawari za mu kula da bayananku cikin kulawa. Karanta cikakken bayanai kan yadda muke <privacyLink>Kula da Sirrinku</privacyLink>
-get-involved-success-title = Kayi nasarar sanya hannu don tallafa wa  yaran { $language } . Mun gode.
-get-involved-success-text = Za mu ci gaba da ba ku ƙarin bayani yayin da ya samu.
-get-involved-return-to-languages = Komo zuwa ga Harsuna
+  .label = Email
+get-involved-opt-in = Yes, send me emails. I'd like to stay informed about the progress of this language on Common Voice.
+get-involved-submit = Submit
+get-involved-stayintouch = We at Mozilla are building a community around voice technology. We would like to stay in touch with updates, new data sources and to hear more about how you're using this data.
+get-involved-privacy-info = We promise to handle your information with care. Read more in our <privacyLink>Privacy Notice</privacyLink>.
+get-involved-success-title = You've successfully signed up for contributing to { $language }. Thank you.
+get-involved-success-text = We will be in touch with more information as it becomes available.
+get-involved-return-to-languages = Return to Languages

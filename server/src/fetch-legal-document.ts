@@ -21,7 +21,7 @@ export default async function fetchLegalDocument(
   }
 
   const [status, text] = await request({
-    uri: `https://raw.githubusercontent.com/mozilla/legal-docs/master/Common_Voice_${name}/${locale}.md`,
+    uri: `https://raw.githubusercontent.com/afrisauti/legal-docs/master/Common_Voice_${name}/${locale}.md`,
     resolveWithFullResponse: true,
   })
     .then((response: any) => [response.statusCode, response.body])
